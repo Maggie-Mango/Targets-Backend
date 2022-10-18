@@ -51,13 +51,47 @@ CREATE TABLE case_assignment (
   ach INT,
   cb_tag INT,
   ssp INT,
+  ssp_high INT,
   ef INT
 );
 
 DROP TABLE IF EXISTS noncasework_tags;
-CREATE TABLE hashtags (
+CREATE TABLE noncasework_tags (
   id SERIAL PRIMARY KEY,
   tag VARCHAR(100)
 );
+
+INSERT INTO noncasework_tags (tag)
+VALUES
+    ('Reactivation'),
+    ('Slack Esc'),
+    ('Veriff'),
+    ('Closer'),
+    ('CAD DRI'),
+    ('Sunset'),
+    ('SSP DRI'),
+    ('CAD DRI');
+
+DROP TABLE IF EXISTS paf_casetypes;
+CREATE TABLE paf_casetypes (
+  id SERIAL PRIMARY KEY,
+  case_type VARCHAR(100)
+);
+
+INSERT INTO paf_casetypes (case_type)
+VALUES
+    ('ca_tr'),
+    ('fa'),
+    ('bf'),
+    ('lbu'),
+    ('gmgb'),
+    ('uncat'),
+    ('carding'),
+    ('ach'),
+    ('cb_tag'),
+    ('ssp'),
+    ('ssp_high'),
+    ('ef');
+
 
 DROP TABLE IF EXISTS drafts;
