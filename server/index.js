@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 
 const app = express();
@@ -12,13 +12,27 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
+
+const db = require("../models/");
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+});
+
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
+
+
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
-
-
+  res.send('Hello World!')
+});
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+  console.log(`Server is listening on port ${port}`)
+});
