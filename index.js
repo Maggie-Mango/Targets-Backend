@@ -1,9 +1,11 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 const port = process.env.PORT || 3001;
-
+import router from './routes/routes.js';
+import db from './database/config.js';
 
 const app = express();
+
 app.use(express.json());
 
 const corsOptions = {
@@ -14,18 +16,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const db = require("../models/");
-db.sequelize.sync()
-  .then(() => {
-    console.log("Synced db.");
-  })
-  .catch((err) => {
-    console.log("Failed to sync db: " + err.message);
-});
+try {
+  await db.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
+app.use(router);
 
 
 
