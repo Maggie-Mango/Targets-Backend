@@ -3,12 +3,8 @@ import db from "../database/config.js";
  
 const { DataTypes } = Sequelize;
  
-const agent = db.define('agent_names', {
-  // Define attributes
-  name: {
-    type: DataTypes.STRING
-  },
-  ldap: {
+const caseType = db.define('paf_casetypes', {
+  case_type: {
     type: DataTypes.STRING
   }
 },{
@@ -16,4 +12,4 @@ const agent = db.define('agent_names', {
   freezeTableName: true
 });
  
-export default agent;
+export default caseType;
