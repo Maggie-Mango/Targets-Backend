@@ -8,6 +8,7 @@ CREATE TABLE agent_names (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100),
   ldap VARCHAR(100),
+  ooo BOOLEAN DEFAULT FALSE,
   team VARCHAR(100)
 );
 

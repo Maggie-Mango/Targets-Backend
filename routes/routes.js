@@ -1,6 +1,7 @@
 import express from 'express';
 import { deleteAgent, getNames } from '../controllers/agent.js';
 import { getCaseTypes } from '../controllers/caseType.js';
+import { getTags } from '../controllers/tag.js';
 
 const router = express.Router();
 
@@ -14,5 +15,7 @@ router.delete('/agent/:name', deleteAgent);
 //router.post('/agent', addAgent);
 
 router.get('/case', getCaseTypes);
+
+router.get('/tags', getTags);
 
 export default router;
