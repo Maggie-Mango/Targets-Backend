@@ -1,4 +1,4 @@
-import caseType from "../models/caseType.js";
+import caseType from "../../models/caseType.js";
 
 //get agent names
 export const getCaseTypes = async (req, res) => {

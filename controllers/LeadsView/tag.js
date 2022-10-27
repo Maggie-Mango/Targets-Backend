@@ -1,4 +1,4 @@
-import tag from "../models/tag.js";
+import tag from "../../models/tag.js";
 
 //get agent names
 export const getTags = async (req, res) => {

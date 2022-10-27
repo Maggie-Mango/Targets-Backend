@@ -1,4 +1,4 @@
-import Agent from "../models/agent.js";
+import Agent from "../../models/agent.js";
 
 //get agent names
 export const getNames = async (req, res) => {
@@ -7,6 +7,15 @@ export const getNames = async (req, res) => {
             attributes: ['name']
         });
         res.send(name);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+//update tag text
+export const updateTag = async (req, res) => {
+    try {
+
     } catch (err) {
         console.log(err);
     }
