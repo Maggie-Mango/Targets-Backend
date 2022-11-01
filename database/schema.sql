@@ -41,6 +41,7 @@ CREATE TABLE case_assignment (
   table_data JSON 
 );
 
+--potential sample data
 INSERT INTO case_assignment(table_data) VALUES ('{
     "data":[
         {
