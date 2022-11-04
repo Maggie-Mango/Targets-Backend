@@ -29,13 +29,13 @@ export const addAgent = (req, res) => {};
 //delete agent
 export const deleteAgent = async (req, res) => {
     try {
-        await agent.destroy({
+        await Agent.destroy({
             where: {
-                name: req.params.name
+                name: req.params.agent
             }
         });
         res.json({
-            "message": `Agent ${req.params.name} Deleted`
+            "message": `Agent ${req.params.agent} Deleted`
         });
     } catch (err) {
         console.log(err);

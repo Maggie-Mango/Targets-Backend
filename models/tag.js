@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize";
-import db from "../database/config.js";
+import db from "../database/dbconfig.js";
  
 const { DataTypes } = Sequelize;
  
-const tag = db.define('noncasework_tags', {
+const Tag = db.define('noncasework_tags', {
   // Define attributes
     tag: {
         type: DataTypes.STRING
@@ -13,4 +13,4 @@ const tag = db.define('noncasework_tags', {
   freezeTableName: true
 });
  
-export default tag;
+export default Tag;

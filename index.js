@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 const port = process.env.PORT || 3001;
 import router from './routes/routes.js';
-import db from './database/config.js';
+import db from './database/dbconfig.js';
 
 const app = express();
 
