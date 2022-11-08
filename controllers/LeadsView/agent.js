@@ -21,11 +21,6 @@ export const updateTag = async (req, res) => {
     }
 }
 
-//add new agent
-export const addAgent = (req, res) => {};
-
-
-
 //delete agent
 export const deleteAgent = async (req, res) => {
     try {
@@ -37,6 +32,19 @@ export const deleteAgent = async (req, res) => {
         res.json({
             "message": `Agent ${req.params.agent} Deleted`
         });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const addAgent = async (req, res) => {
+    try {
+        await Agent.create({
+            tag: req.params.agent
+        });
+        res.json({
+            "message": `Agent ${req.params.agent} added`
+        })
     } catch (err) {
         console.log(err);
     }

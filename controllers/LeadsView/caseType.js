@@ -27,3 +27,16 @@ export const deleteCaseType = async (req, res) => {
         console.log(err);
     }
 }
+
+export const addCaseType = async (req, res) => {
+    try {
+        await caseType.create({
+            tag: req.params.case_type
+        });
+        res.json({
+            "message": `Case ${req.params.case_type} added`
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}

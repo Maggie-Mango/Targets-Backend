@@ -27,3 +27,16 @@ export const deleteTag = async (req, res) => {
         console.log(err);
     }
 }
+
+export const addTag = async (req, res) => {
+    try {
+        await Tag.create({
+            tag: req.params.tag
+        });
+        res.json({
+            "message": `Tag ${req.params.tag} added`
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}

@@ -1,10 +1,22 @@
 import config from '../../database/snowflakeConfig.js'
 import snowflake from 'snowflake-sdk'
+import query from '../../database/fourWeekAvg.js'
 
 var connection = snowflake.createConnection(config)
 
 
-connection.connectAsync( 
+export const getAvg = async(req, res) =>{
+    connection.execute({
+    sqlText: query,
+    complete: async function(err,stmt,rows){
+        let pool = await connection.connectAsync();
+        console.log(rows)     
+        res.send(rows);
+    }
+})
+}
+/*
+export const data = connection.connectAsync( 
     function(err, conn) {
         if (err) {
             console.error('Unable to connect: ' + err.message);
@@ -13,16 +25,16 @@ connection.connectAsync(
             let connId = conn.getId();
             console.log('Successfully connected to Snowflake on id ' + connId); 
         }
-    }).then(() => {
+    }).then( () => {
         connection.execute({
-        sqlText: 'select * from app_risk.app_risk.fraudops_cases limit 1',
+        sqlText: query,
         complete: function(err, stmt, rows) {
             if (err) {
                 console.error('error: ' + err.message);
             } else {
-                console.log('in here')
-                console.log(rows)
+                return rows
             }
         }
     })
 })
+*/
