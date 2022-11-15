@@ -65,28 +65,9 @@ INSERT INTO case_assignment(table_data) VALUES ('{
     ]
 }');
 
-/*
 
---sample submissions
-INSERT INTO case_assignment (agent_name, ooo, tags)
-VALUES
-  ('Alyce', true, '["closer"]'),
-    ('Antoine D', false, '["veriff"]'),
-    ('Cesare', false, '["slack"]'),
-    ('Cierra', false, '["slack"]'),
-    ('Cory', false, '[]'),
-    ('Dennis', false, '[]'),
-    ('Ed', false, '[]'),
-    ('Hector', false, '[]'),
-    ('Jaina', false, '[]'),
-    ('Kasandra', false, '["closer", "sunset"]'),
-    ('Michaela', false, '["veriff", "ssp dri"]'),
-    ('Nick', false, '["reactivation", "ssp"]'),
-    ('Rachel', false, '["reactivation"]'),
-    ('Robert', false, '[]'),
-    ('Stephanie', false, '[]'),
-    ('Vlad', false, '[]');
-*/
+
+
 
 DROP TABLE IF EXISTS noncasework_tags;
 CREATE TABLE noncasework_tags (
@@ -108,23 +89,25 @@ VALUES
 DROP TABLE IF EXISTS paf_casetypes;
 CREATE TABLE paf_casetypes (
   id SERIAL PRIMARY KEY,
-  case_type VARCHAR(100)
+  case_type VARCHAR(100),
+  is_tr BOOLEAN,
+  is_ssp BOOLEAN
 );
 
-INSERT INTO paf_casetypes (case_type)
+INSERT INTO paf_casetypes (case_type, is_tr, is_ssp)
 VALUES
-    ('ca_tr'),
-    ('fa'),
-    ('bf'),
-    ('lbu'),
-    ('gmgb'),
-    ('uncat'),
-    ('carding'),
-    ('ach'),
-    ('cb_tag'),
-    ('ssp'),
-    ('ssp_high'),
-    ('ef');
-
-
-DROP TABLE IF EXISTS drafts;
+    ('DAY', NULL, NULL),
+    ('TR_TOTAL', NULL, NULL),
+    ('SSP_TOTAL', NULL, NULL),
+    ('ACH', TRUE, FALSE),
+    ('BF', TRUE, FALSE),
+    ('FA', TRUE, FALSE),
+    ('CARDING', TRUE, FALSE),
+    ('RESPONSE', TRUE, FALSE),
+    ('AFTERPAY', TRUE, FALSE),
+    ('VERIFF', TRUE, FALSE),
+    ('UNCAT', TRUE, FALSE),
+    ('GMGB', TRUE, FALSE),
+    ('UNLINKED_REFUNDS', TRUE, FALSE),
+    ('LBU', TRUE, FALSE),
+    ('EF', FALSE, FALSE);
