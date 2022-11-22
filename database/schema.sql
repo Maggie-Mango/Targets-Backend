@@ -33,37 +33,33 @@ VALUES
     ('Vlad', 'vghisoiu', 'FTE');
 
             
-DROP TABLE IF EXISTS case_assignment;
-CREATE TABLE case_assignment (
+DROP TABLE IF EXISTS case_targets;
+CREATE TABLE case_targets (
   id SERIAL PRIMARY KEY,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_by VARCHAR(100) DEFAULT 'test',
+  agentname VARCHAR(100),
+  noncasework JSON,
+  ooo BOOLEAN,
+  TR_TOTAL INTEGER,
+  SSP_TOTAL INTEGER,
+  ACH INTEGER,
+  BF INTEGER,
+  FA INTEGER,
+  CARDING INTEGER,
+  RESPONSE INTEGER,
+  RESPONSE INTEGER,
+  AFTERPAY INTEGER,
+  VERIFF INTEGER,
+  UNCAT INTEGER,
+  GMGB INTEGER,
+  UNLINKED_REFUNDS INTEGER,
+  LBU INTEGER,
+  EF INTEGER,
+  target_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  submitted_by VARCHAR(100) DEFAULT 'test',
+  updated_at DATETIME DEFAULT NULL,
   table_data JSON 
 );
 
---potential sample data
-INSERT INTO case_assignment(table_data) VALUES ('{
-    "data":[
-        {
-            "agent_name": "testAgent",
-            "tags": ["veriff", "closer"], 
-            "ooo": false, 
-            "total": 100, 
-            "ca_tr": 5, 
-            "fa": 20, 
-            "bf": 5, 
-            "lbu": 0, 
-            "gmgb": 30, 
-            "uncat": 40, 
-            "carding": 0, 
-            "ach": 0, 
-            "cb_tag": 0, 
-            "ssp": 0, 
-            "ssp_high": 0, 
-            "ef": 0 
-        }
-    ]
-}');
 
 
 

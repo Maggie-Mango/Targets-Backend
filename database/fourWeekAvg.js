@@ -46,7 +46,7 @@ FROM (
         END AS Cases,
         TO_CHAR(created_at, 'DY') AS DAY,
         DATE(created_at) AS DATE,
-        (COUNT(user_token)) AS COUNT_EM
+        (COUNT(case_id)) AS COUNT_EM
     FROM app_risk.app_risk.fact_risk_cases
     WHERE created_at >= dateadd(day, -30, current_date())
     AND "group" IN ('tr')

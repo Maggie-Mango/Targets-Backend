@@ -4,7 +4,10 @@ export const getCaseTypes = async (req, res) => {
     try {
         const cases = await caseType.findAll({
             attributes: [
-                'case_type'            ]
+                'case_type',
+                'is_tr',
+                'is_ssp'
+            ]
         });
         res.send(cases);
     } catch (err) {
