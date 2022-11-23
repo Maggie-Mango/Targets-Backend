@@ -36,6 +36,7 @@ VALUES
 DROP TABLE IF EXISTS case_assignments;
 CREATE TABLE case_assignments (
   id SERIAL PRIMARY KEY,
+  rowId INTEGER,
   agentname VARCHAR(100),
   noncasework JSON,
   ooo BOOLEAN,

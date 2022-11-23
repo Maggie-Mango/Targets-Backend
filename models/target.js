@@ -4,7 +4,7 @@ import db from "../database/dbconfig.js";
 const { DataTypes } = Sequelize;
  
 const CaseTargets = db.define('case_assignments', {
-    id: {
+    rowId: {
         type: DataTypes.INTEGER,
         primaryKey: true
     },
@@ -69,7 +69,8 @@ const CaseTargets = db.define('case_assignments', {
         type: DataTypes.DATE
     }
 }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
 });
  
 export default CaseTargets;
