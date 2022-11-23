@@ -4,6 +4,7 @@ import { getCaseTypes, deleteCaseType, addCaseType } from '../controllers/LeadsV
 import { getTags, deleteTag, addTag } from '../controllers/LeadsView/tag.js';
 import { getData } from '../controllers/OpsView/getTargets.js';
 import { getAvg } from '../controllers/LeadsView/snowflake.js';
+import { submitTargets } from '../controllers/LeadsView/submit.js';
 
 const router = express.Router();
 
@@ -23,12 +24,14 @@ router.get('/tags', getTags);
 router.delete('/deletetag/:tag', deleteTag);
 router.post('/addtag/:tag', addTag);
 
-
 //snowflake data
-router.get('/snowflake', getAvg )
+router.get('/snowflake', getAvg );
 
+//target submission
+router.post('/submit', submitTargets);
 
-router.get('/data', getData)
+//get table data in ops view
+router.get('/data', getData);
 
 
 export default router;

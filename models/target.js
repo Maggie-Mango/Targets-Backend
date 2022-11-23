@@ -3,24 +3,73 @@ import db from "../database/dbconfig.js";
  
 const { DataTypes } = Sequelize;
  
-const caseAssignment = db.define('CaseAssignment', {
+const CaseTargets = db.define('case_assignments', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true
     },
-    updated_at: {
-        type: DataTypes.DATE
-    },
-    updated_by: {
+    agentname: {
         type: DataTypes.STRING
     },
-    table_data: {
+    noncasework: {
         type: DataTypes.JSON
+    },
+    ooo: {
+        type: DataTypes.BOOLEAN
+    },
+    TR_TOTAL: {
+        type: DataTypes.INTEGER
+    },
+    SSP_TOTAL: {
+        type: DataTypes.INTEGER
+    },
+    ACH: {
+        type: DataTypes.INTEGER
+    },
+    BF: {
+        type: DataTypes.INTEGER
+    },
+    FA: {
+        type: DataTypes.INTEGER
+    },
+    CARDING: {
+        type: DataTypes.INTEGER
+    },
+    RESPONSE: {
+        type: DataTypes.INTEGER
+    },
+    AFTERPAY: {
+        type: DataTypes.INTEGER
+    },
+    VERIFF: {
+        type: DataTypes.INTEGER
+    },
+    UNCAT: {
+        type: DataTypes.INTEGER
+    },
+    GMGB: {
+        type: DataTypes.INTEGER
+    },
+    UNLINKED_REFUNDS: {
+        type: DataTypes.INTEGER
+    },
+    LBU: {
+        type: DataTypes.INTEGER
+    },
+    EF: {
+       type: DataTypes.INTEGER
+    },
+    target_date: {
+        type: DataTypes.DATE
+    },
+    submitted_by: {
+        type: DataTypes.STRING
+    },
+    updated_at: {
+        type: DataTypes.DATE
     }
 }, {
-  tableName: 'case_assignment',
-  timestamps: false
-},
-);
+    freezeTableName: true
+});
  
-export default caseAssignment;
+export default CaseTargets;

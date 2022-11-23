@@ -33,8 +33,8 @@ VALUES
     ('Vlad', 'vghisoiu', 'FTE');
 
             
-DROP TABLE IF EXISTS case_targets;
-CREATE TABLE case_targets (
+DROP TABLE IF EXISTS case_assignments;
+CREATE TABLE case_assignments (
   id SERIAL PRIMARY KEY,
   agentname VARCHAR(100),
   noncasework JSON,
@@ -46,7 +46,6 @@ CREATE TABLE case_targets (
   FA INTEGER,
   CARDING INTEGER,
   RESPONSE INTEGER,
-  RESPONSE INTEGER,
   AFTERPAY INTEGER,
   VERIFF INTEGER,
   UNCAT INTEGER,
@@ -56,14 +55,8 @@ CREATE TABLE case_targets (
   EF INTEGER,
   target_date DATETIME DEFAULT CURRENT_TIMESTAMP,
   submitted_by VARCHAR(100) DEFAULT 'test',
-  updated_at DATETIME DEFAULT NULL,
-  table_data JSON 
+  updated_at DATETIME DEFAULT NULL
 );
-
-
-
-
-
 
 DROP TABLE IF EXISTS noncasework_tags;
 CREATE TABLE noncasework_tags (
