@@ -2,7 +2,6 @@ import CaseTargets from "../../models/target.js";
 
 export const submitTargets = async (req, res) => {
     const rowData = req.body.data
-    console.log('row!')
     for (let i = 0; i < rowData.length; i++) {
         let row = rowData[i];
         console.log(row.id)

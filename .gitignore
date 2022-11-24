@@ -2,3 +2,4 @@ package-lock.json
 dbconfig.js
 snowflakeConfig.js
 node_modules
+snowflake.log
