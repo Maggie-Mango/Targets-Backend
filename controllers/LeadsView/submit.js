@@ -1,4 +1,6 @@
 import CaseTargets from "../../models/target.js";
+import { Sequelize } from "sequelize";
+
 
 export const submitTargets = async (req, res) => {
     const rowData = req.body.data
@@ -35,4 +37,11 @@ export const submitTargets = async (req, res) => {
     
     }
     res.json('rows added')
+}
+
+export const getMaxDate = async (req, res) => {
+    res.send( await CaseTargets.findAll({
+        attributes: [[Sequelize.fn('MAX', Sequelize.col('target_date')), 'maxDate']],
+        raw: true,
+    }));
 }
